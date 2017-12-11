@@ -127,7 +127,7 @@ print(sess.run(loss, {x: [1, 2, 3, 4], y: [0, -1, -2, -3]}))
 ```
 Using the 
 
-   return_value =  tf.assign(parameter)
+    return_value =  tf.assign(parameter)
 
 and the format of parameter is
 
