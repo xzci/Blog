@@ -11,7 +11,7 @@ if you do have some wrong with it.
 Maybe you should use 'Anaconda' to get the python environment.
 * From the website
 * From Visual stdio 2017, you can click the Python environment.
-when you ready: installed the anaconda. you can use 'Anaconda Prompt'
+when you ready: installed the Anaconda. you can use 'Anaconda Prompt'
 and typed:
 
 ```shell Session
@@ -26,8 +26,10 @@ then add the environment to visual studio.
 
 # Getting Started With TensorFlow
 ## Issue
-    * how many types dose tensorflow have
+    * 1.how many types dose tensorflow have
     * 
+1. When i test, only the float32 can be used.
+
 ## NOTE
 That is the way how to program the tensorflow:
     * build the graph
