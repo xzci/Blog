@@ -1,7 +1,15 @@
-vmware 
+
+
+
+
+
 https://github.com/sentimos/kmeans/blob/master/KMeans.ipynb
 
 http://blog.topspeedsnail.com/page/7
+
+
+
+
 
 无需编程经验：
 
