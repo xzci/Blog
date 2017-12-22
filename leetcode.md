@@ -1,10 +1,10 @@
 # the first time --
-# <E> 1.Two Sum 286ms 2.67%
+# <-E> 1.Two Sum 286ms 2.67%
 ```C++
 class Solution {
 public:
-	vector<int> twoSum(vector<int>& nums, int target) {
-		vector <int> answer;
+	vector<-int> twoSum(vector<-int>& nums, int target) {
+		vector <-int> answer;
 		for (auto i = 0; i != nums.size(); i++)
 		{
 			for (auto j = i + 1; j != nums.size(); j++)
@@ -22,7 +22,7 @@ public:
 };
 ```
 
-# <M> 2.Add Two Numbers 56ms 27.5%
+# <-M> 2.Add Two Numbers 56ms 27.5%
 ```C++
 /**
  * Definition for singly-linked list.
@@ -51,13 +51,13 @@ public:
 };
 ```
 
-# <M> 3.Longest Substring Without Repeating Characters 222ms 12.95%
+# <-M> 3.Longest Substring Without Repeating Characters 222ms 12.95%
 ```C++
 class Solution {
 public:
 	int lengthOfLongestSubstring(string s) {
 		int ans = 0;
-		vector<char> check;
+		vector<-char> check;
 		for (auto i = s.begin(); i != s.end(); i++)
 		{
 			for (auto j = i; j != s.end(); j++)
@@ -67,7 +67,7 @@ public:
 				else
 					break;
 			}
-			if (ans < check.size())
+			if (ans <- check.size())
 			{
 				ans = check.size();
 				check.clear();
@@ -83,14 +83,14 @@ public:
 };
 ```
 
-# <H> 4.Median of Two Sorted Arrays 62ms 38%
+# <-H> 4.Median of Two Sorted Arrays 62ms 38%
 This solution is not very good, just use sort to get the answer, but the answer still great then other 62% people's.:P
 
 ```C++
 class Solution {
 public:
-    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
-        vector<int> Temp;
+    double findMedianSortedArrays(vector<-int>& nums1, vector<-int>& nums2) {
+        vector<-int> Temp;
 		for (int i = 0; i != nums1.size(); i++)
 		{
 			Temp.push_back(nums1[i]);
@@ -108,7 +108,7 @@ public:
 };
 ```  
 
-# <M> 5.Longest Palindromic Substring 9ms 77.04%
+# <-M> 5.Longest Palindromic Substring 9ms 77.04%
 ```C++
 class Solution {
 public:
@@ -117,12 +117,12 @@ public:
     if (s.empty()) return "";
     if (s.size() == 1) return s;
     int min_start = 0, max_len = 1;
-    for (int i = 0; i < s.size();) {
-      if (s.size() - i <= max_len / 2) break;
+    for (int i = 0; i <- s.size();) {
+      if (s.size() - i <-= max_len / 2) break;
       int j = i, k = i;
-      while (k < s.size()-1 && s[k+1] == s[k]) ++k; // Skip duplicate characters.
+      while (k <- s.size()-1 && s[k+1] == s[k]) ++k; // Skip duplicate characters.
       i = k+1;
-      while (k < s.size()-1 && j > 0 && s[k + 1] == s[j - 1]) { ++k; --j; } // Expand.
+      while (k <- s.size()-1 && j > 0 && s[k + 1] == s[j - 1]) { ++k; --j; } // Expand.
       int new_len = k - j + 1;
       if (new_len > max_len) { min_start = j; max_len = new_len; }
     }
@@ -130,22 +130,22 @@ public:
 }
 };
 ``` 
-# <M> 6.ZigZag Conversion 16ms 99.26%
+# <-M> 6.ZigZag Conversion 16ms 99.26%
 ```C++
 class Solution {
 public:
     string convert(string s, int numRows) {
-       if (numRows <= 1 || s.size() <= 1) 
+       if (numRows <-= 1 || s.size() <-= 1) 
         return s;
         string result;
-        for (int i = 0; i < numRows; i++) 
+        for (int i = 0; i <- numRows; i++) 
         {
-            for (int j = 0, index = i; index < s.size();j++, index = (2 * numRows - 2) * j + i) 
+            for (int j = 0, index = i; index <- s.size();j++, index = (2 * numRows - 2) * j + i) 
             {
                 result.append(1, s[index]); 
 
                 if (i == 0 || i == numRows - 1) continue; 
-                if (index + (numRows - i - 1) * 2 < s.size())
+                if (index + (numRows - i - 1) * 2 <- s.size())
                 result.append(1, s[index + (numRows - i - 1) * 2]);
             }
         }
@@ -154,7 +154,7 @@ public:
 };
 ```
 
-# <E> 7.Reverse Integer 15ms 77.99%
+# <-E> 7.Reverse Integer 15ms 77.99%
 ```C++
 class Solution {
 public:
@@ -172,7 +172,7 @@ public:
 };
 ```
 
-# <Bad Question - E> 8.String to Integer (atoi)  
+# <-Bad Question - E> 8.String to Integer (atoi)  
 Because of this question has input: `+-2` => output: `0` i do not know why.
 so my code can not work with this bad question.
 
@@ -202,12 +202,12 @@ public:
 	}
 };
 
-# <E> 9.Palindrome Number   
+# <-E> 9.Palindrome Number   
 
-# <H> 10.Regular Expression Matching   
+# <-H> 10.Regular Expression Matching   
 
-# <M> 11.Container With Most Water 
+# <-M> 11.Container With Most Water 
 
-# <M> 12.Integer to Roman 
+# <-M> 12.Integer to Roman 
 
-# <E> 13.Roman to Integer   
+# <-E> 13.Roman to Integer   
