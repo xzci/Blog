@@ -145,7 +145,7 @@ cat("The zero occurs at", 2*pi, "radians.", "\n")
 # The zero occurs at 6.283185 radians.
 ```
 * You must provide a newline __character (\n)__ to terminate the line.
-* A serious limitation is that it cannot print compound(复合) data structures such as matrices and lists.
+* A serious limitation is that it cannot print compound(夝坈) data structures such as matrices and lists.
 
 ## ls()
 The function displays the name of object in workspace.
@@ -195,7 +195,7 @@ mode(3.14)
 * standard deviation 
 * variance (方差)
 * correlation (相关系数)
-* covariance (协方差)
+* covariance (坝方差)
 use these function below:
     • mean(x)
     • median(x)
@@ -220,4 +220,14 @@ v
 v["test1"]
 # test1 
 # "123" 
+```
+
+
+# Packages
+You can use Packages to help you finish a lot of things more easily.
+```R
+# This funcation will show all the function support in the libray
+libray()
+# Or you can use the code below
+install.packages()[,c("Package", "Version")]
 ```
