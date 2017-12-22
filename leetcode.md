@@ -1,5 +1,5 @@
-# the first time --
-# <-E> 1.Two Sum 286ms 2.67%
+## the first time --
+## <-E> 1.Two Sum 286ms 2.67%
 ```C++
 class Solution {
 public:
@@ -22,7 +22,7 @@ public:
 };
 ```
 
-# <-M> 2.Add Two Numbers 56ms 27.5%
+## <-M> 2.Add Two Numbers 56ms 27.5%
 ```C++
 /**
  * Definition for singly-linked list.
@@ -51,7 +51,7 @@ public:
 };
 ```
 
-# <-M> 3.Longest Substring Without Repeating Characters 222ms 12.95%
+## <-M> 3.Longest Substring Without Repeating Characters 222ms 12.95%
 ```C++
 class Solution {
 public:
@@ -83,7 +83,7 @@ public:
 };
 ```
 
-# <-H> 4.Median of Two Sorted Arrays 62ms 38%
+## <-H> 4.Median of Two Sorted Arrays 62ms 38%
 This solution is not very good, just use sort to get the answer, but the answer still great then other 62% people's.:P
 
 ```C++
@@ -108,7 +108,7 @@ public:
 };
 ```  
 
-# <-M> 5.Longest Palindromic Substring 9ms 77.04%
+## <-M> 5.Longest Palindromic Substring 9ms 77.04%
 ```C++
 class Solution {
 public:
@@ -130,7 +130,7 @@ public:
 }
 };
 ``` 
-# <-M> 6.ZigZag Conversion 16ms 99.26%
+## <-M> 6.ZigZag Conversion 16ms 99.26%
 ```C++
 class Solution {
 public:
@@ -154,7 +154,7 @@ public:
 };
 ```
 
-# <-E> 7.Reverse Integer 15ms 77.99%
+## <-E> 7.Reverse Integer 15ms 77.99%
 ```C++
 class Solution {
 public:
@@ -172,7 +172,7 @@ public:
 };
 ```
 
-# <-Bad Question - E> 8.String to Integer (atoi)  
+## <-Bad Question - E> 8.String to Integer (atoi)  
 Because of this question has input: `+-2` => output: `0` i do not know why.
 so my code can not work with this bad question.
 ```C++
@@ -202,12 +202,12 @@ public:
 	}
 };
 ```
-# <-E> 9.Palindrome Number   
+## <-E> 9.Palindrome Number   
 
-# <-H> 10.Regular Expression Matching   
+## <-H> 10.Regular Expression Matching   
 
-# <-M> 11.Container With Most Water 
+## <-M> 11.Container With Most Water 
 
-# <-M> 12.Integer to Roman 
+## <-M> 12.Integer to Roman 
 
-# <-E> 13.Roman to Integer   
+## <-E> 13.Roman to Integer   
