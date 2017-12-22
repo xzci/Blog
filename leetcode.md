@@ -175,7 +175,7 @@ public:
 # <-Bad Question - E> 8.String to Integer (atoi)  
 Because of this question has input: `+-2` => output: `0` i do not know why.
 so my code can not work with this bad question.
-
+```C++
 class Solution {
 public:
     int myAtoi(string str) {
@@ -201,7 +201,7 @@ public:
 		return ans * checkflag;
 	}
 };
-
+```
 # <-E> 9.Palindrome Number   
 
 # <-H> 10.Regular Expression Matching   
