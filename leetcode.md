@@ -1,28 +1,81 @@
-## the first time --
+## leetcode 再刷。
+其实应该算是第一次了。暴露了很多的问题。
+
 ## <-E> 1.Two Sum 286ms 2.67%
+暴力方法，但是过了。
+原题就是给出一个数值，然后再数组中，找到2个元素，相加的值恰好为给定的值，那么返回这2个元素的下标的集合。
+普通思路其实也是可以做的。（2次循环，逐个加和判断是否相等。）但是应该还是有相应的简单的解法。
+我的解法：（普通思路）
 ```C++
-class Solution {
-public:
-	vector<-int> twoSum(vector<-int>& nums, int target) {
-		vector <-int> answer;
-		for (auto i = 0; i != nums.size(); i++)
+
+vector<int> twoSum(vector<int>& nums, int target) {
+	vector <int> answer;
+	for (auto i = 0; i != nums.size(); i++)
+	{
+		for (auto j = i + 1; j != nums.size(); j++)
 		{
-			for (auto j = i + 1; j != nums.size(); j++)
+			if (nums[i] + nums[j] == target)
 			{
-				if (nums[i] + nums[j] == target)
-				{
-					answer.push_back(i);
-					answer.push_back(j);
-				}
+				answer.push_back(i);
+				answer.push_back(j);
 			}
-			
 		}
-		return answer;
+		
 	}
-};
+	return answer;
+}
+
 ```
+大佬的解法：
+利用hashmap的无序性。 `hash.find(numberToFind) != hash.end()` 如果没有找到，则将元素的值作为hash的key， 元素的位数为值添加到map中。以此类推直到找到该元素为止。
+```C++
+vector<int> twoSum(vector<int> &numbers, int target)
+{
+    //Key is the number and value is its index in the vector.
+	unordered_map<int, int> hash;
+	vector<int> result;
+	for (int i = 0; i < numbers.size(); i++) {
+		int numberToFind = target - numbers[i];
+
+            //if numberToFind is found in map, return them
+		if (hash.find(numberToFind) != hash.end()) {
+			result.push_back(hash[numberToFind]);
+			result.push_back(i);			
+			return result;
+		}
+
+            //number was not found. Put it in the map.
+		hash[numbers[i]] = i;
+	}
+	return result;
+}
+```
+### 展开
+使用`unordered_map`来做。 该数据结构被定义在`unordered_map` 库中。
+* unordered_map 内部实现为哈希表。（所以是无序的）
+* map 内部实现为红黑树（所以map内部的元素都是有序的）
+#### map
+优点：
+* 有序性
+* 内部由红黑树实现（使用红黑树特性的时候，效率快）
+缺点：
+* 空间占用率高（节点）
+#### unordered_map 
+优点：
+* 查找快
+缺点：
+* 建立hash表的时候，消耗大量时间
+
+
 
 ## <-M> 2.Add Two Numbers 56ms 27.5%
+使用链表计算加法。
+熟练使用链表就行。（思路相同，根据大佬的代码风格整理了一下链表实现的方式）
+```C++
+(l1 ? l1->val : 0)
+l1 = l1 ? l1->next : l1;
+```
+
 ```C++
 /**
  * Definition for singly-linked list.
@@ -172,7 +225,7 @@ public:
 };
 ```
 
-## <-Bad Question - E> 8.String to Integer (atoi)  
+## <-Bad Question -M> 8.String to Integer (atoi)  
 Because of this question has input: `+-2` => output: `0` i do not know why.
 so my code can not work with this bad question.
 ```C++
@@ -202,12 +255,53 @@ public:
 	}
 };
 ```
+
 ## <-E> 9.Palindrome Number   
+```C++
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x<0|| (x!=0 &&x%10==0)) return false;
+        int sum=0;
+        while(x>sum)
+        {
+            sum = sum*10+x%10;
+            x = x/10;
+        }
+        return (x==sum)||(x==sum/10);
+
+    }
+};
+```
 
 ## <-H> 10.Regular Expression Matching   
+Pending
+I finished a part of the funcation. i don't know how to check the difference between `a*` and `a*a`. my funcation will check the `*` mark, and match all this string, i mean. the last `a` word woudle be left, (do not match) very bad feeling.
 
 ## <-M> 11.Container With Most Water 
 
 ## <-M> 12.Integer to Roman 
 
 ## <-E> 13.Roman to Integer   
+
+## <-E> 14. Longest Common Prefix
+求出最长的公共字串。这题有些歧义，根据`Disucuss`中的内容，增加条件如下：
+>{"a","a","b"} should give "" as there is nothing common in all the 3 strings.
+
+>{"a", "a"} should give "a" as a is longest common prefix in all the strings.
+
+>{"abca", "abc"} as abc
+
+>{"ac", "ac", "a", "a"} as a.
+
+有了该条件后，可以使用双重循环进行求解，在一般的操作中，需要注重边界值的问题。
+```C++
+string longestCommonPrefix(vector<string>& strs) {
+		string prefix = "";
+        for(int idx=0; strs.size()>0; prefix+=strs[0][idx], idx++)
+            for(int i=0; i<strs.size(); i++)
+                if(idx >= strs[i].size() ||(i > 0 && strs[i][idx] != strs[i-1][idx]))
+                    return prefix;
+        return prefix;
+    }
+```
