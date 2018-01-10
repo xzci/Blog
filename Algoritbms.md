@@ -5,7 +5,8 @@
     理解数据结构
 
 代码主要使用的这本书：
->Mastering Algoritbms with C 
+>Mastering Algoritbms with C
+
 通过反复的练习，达到自己手写的程度（白板写代码）
 每个数据结构的实现必须熟悉（最为基本的实现）虽然C++或者其他语言都有这相应的的基本实现，可以直接调用使用，（调用库函数）但是还是应该能够直接手写出代码。以其获得更为具体的优化。（能所不能）
 相应的，要理解每个数据结构的优缺点。
@@ -22,6 +23,8 @@
 * 每个节点的位置是离散的（后一个节点的内存位置并不是在节点内存的下一个） 这种分散的特性，相比数组的连续内存有些时候会更加高效。
 * 如果发生删除操作一定要先获取以后节点的地址
 
+如果插入、删除的__位置为NULL__，则默认插入、删除的位置在表头。
+
 ```C 节点定义
 typedef struct ListElmt_
 {
@@ -32,7 +35,7 @@ typedef struct ListElmt_
 typedef struct List_
 {
     int size;
-    int(*match)(vonst void *key1, const void *key2);
+    int(*match)(const void *key1, const void *key2);
     void(*destroy)(void *data);
     ListElmt *head;
     ListElmt *tail;
@@ -42,8 +45,8 @@ typedef struct List_
 然后定义相关的函数： 增删查改
 
 ```C 接口函数
-void init_list(List *list, void(*destory)(void *data));
-void list_destory(void *data);
+void list_init(List *list, void(*destroy)(void *data));
+void list_destroy(List *list);
 
 // should use bool but C do not give bool before C99
 int list_ins_next(List *list, ListElmt *element, const void * data);
@@ -67,7 +70,7 @@ int list_rem_next(List *list, ListElmt *element, void **data);
 void list_init(List *list, void(*destroy)(void *data))
 {
     list->size = 0;
-    list->destory = destroy;
+    list->destroy = destroy;
     list->head = NULL;
     list->tail = NULL;
 }
@@ -149,4 +152,11 @@ int list_rem_next(List *list, ListElmt *element, void **data)
 
 也可以类比其他书籍查看不同，比如
 > 数据结构与算法分析 C语言描述
+
 就可以明白在不同的编程思路下，虽然是同一数据结构，但是代码可能会完全不同。具体喜欢哪种风格，那还是需要自己见仁见智了。
+
+### 栈
+
+这里栈的实现是利用
+
+- [ ] adasd
