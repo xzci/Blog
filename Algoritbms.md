@@ -157,6 +157,98 @@ int list_rem_next(List *list, ListElmt *element, void **data)
 
 ### 栈
 
-这里栈的实现是利用
+栈的实现方式很简单，可以通过很多的方式来实现，栈只要保证操作只在头部就可以称之为栈。这里栈的实现是利用先前做出的假设，**如果插入位置为空的话将操作位置设定为表的头部**
 
-- [ ] adasd
+```C 节点定义
+typedef List Stack;
+```
+
+```C 接口函数
+#define stack_init list_init
+#define stack_destroy list_destroy
+
+#define stack_peek(stack) ((stack)->head == NULL ? NULL : (stack)->head->data)
+#define stack_size list_size
+
+int stack_push(Stack *stack, const void *data);
+int stack_pop(Stack *stack, void **data);
+```
+
+```C 函数实现
+int stack_push(Stack *stack, const void *data)
+{
+    return list_ins_next(stack, NULL, data);
+}
+
+int stack_pop(Stack *stack, void **data)
+{
+    return list_rem_next(stack, NULL, data);
+}
+```
+
+### 队列
+
+队列也可以看作特殊的链表，操作分别在头尾两端。在头部进行删除，在尾部进行插入。
+同栈一样，没有操作内部节点的接口。
+
+```C 节点定义
+typedef List Queue;
+```
+
+```C 接口函数
+#define queue_init list_init
+#define queue_destroy list_destroy
+
+#define queue_peek(queue) ((queue)->head == NULL ? NULL : (queue)->head->data)
+#define queue_size list_size
+
+int queue_enqueue(Queue *queue, const void *data);
+int queue_dequeue(Queue *queue, void **data);
+```
+
+```C 函数实现
+int queue_enqueue(Queue *queue, const void *data)
+{
+    return list_ins_next(queue, list_tail(queue), data);
+}
+int queue_dequeue(Queue *queue, void **data)
+{
+    return list_rem_next(queue, NULL, data);
+}
+```
+
+栈和队列可以使用不同的实现方式，比如链表，或者是可以增长的数组。简单的思路如下：
+如果对于数据的插入，删除的个数确定，可以简单的使用数组进行实现，（惰性删除即可，或直接在建立的初期为以后的插入位置进行预留等其他的实现方式），或者更进一步，使用其他语言提供的库函数进行封装。
+另外，数据量确定和可读性起见，可以直接在结构体中包含所需要的数据。这时，可以建立单独的带有类型的链表，如int类型的链表，char类型的链表等。
+
+上述实现是通过链表系作为接口，修改而成的。如果单纯只使用其中一种数据结构，可以针对这种结构单独写出。
+
+#### 展开
+
+以后自己的代码也需要这样的设计。建立一个良好的接口，增加程序代码的复用。
+比如在上记得代码中，对链表这个数据结构进行了抽象，相同的结构如：
+
+* 插入
+* 删除
+* 头节点
+* 尾结点
+* 链表长度
+* 链表初始化
+* 链表销毁
+
+这些地方这3种数据结构操作相似。可以进行抽象，在其他提供类的语言中，这些可以通过类进行继承，以期实现代码的复用。
+
+对于工作之中，使代码多结构化可以减少需求变更的情况下，尽可能的减少修改代码的行数。
+比如，链表实现的代码中，需要添加一个功能，那么可以只需要在list中实现这个功能，其他数据结构就可以通过相应的参数，return给相关的函数。
+另外比如需要修改插入函数，那么仅仅只需要在list函数中就行修改就可以保证，剩下的数据结构同时被修改。
+
+这里的数据结构可以替换成其他工作中需要实现的功能等。结果同样。
+
+```C 节点定义
+```
+
+```C 接口函数
+```
+
+```C 函数实现
+```
