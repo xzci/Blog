@@ -172,7 +172,7 @@ public:
 };
 ```
 
-## <-Bad Question - E> 8.String to Integer (atoi)  
+## <-Bad Question -M> 8.String to Integer (atoi)  
 Because of this question has input: `+-2` => output: `0` i do not know why.
 so my code can not work with this bad question.
 ```C++
@@ -202,7 +202,25 @@ public:
 	}
 };
 ```
-## <-E> 9.Palindrome Number   
+## <-Bad Question -E> 9.Palindrome Number   
+This question means that all negative numbers are __NOT__ palindromic.
+I did not work out this question, beacuse i do not konw how to make my code __DO NOT__ use any extra space, i mean, i thought, i can only use one variable: `x`, so maybe 
+>Do this without extra space.
+
+means do not use other type?
+There is the answer:
+```C++
+bool isPalindrome(int x) {
+        if(x<0|| (x!=0 &&x%10==0)) return false;
+        int sum=0;
+        while(x>sum)
+        {
+            sum = sum*10+x%10;
+            x = x/10;
+        }
+        return (x==sum)||(x==sum/10);
+}
+```
 
 ## <-H> 10.Regular Expression Matching   
 
